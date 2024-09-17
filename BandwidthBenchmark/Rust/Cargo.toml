@@ -1,0 +1,18 @@
+[package]
+name = "TheRustBandwidthBenchmark"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.13", features = ["derive"] }
+rayon = "1.10.0"
+
+[[bin]]
+name = "bench"
+path = "src/main.rs"
+
+[profile.release]
+# debug = true
+lto = "fat"
+codegen-units = 1
+incremental = false
